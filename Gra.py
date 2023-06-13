@@ -55,44 +55,43 @@ e1_p = [random.randint(width, width + 100), random.randint(50, height
 - 100)]
 # GEJM OVA
 def game_over():
-while True:
-# when the player clicks the cross button
-for ev in pygame.event.get():
-if ev.type == pygame.QUIT:
-    # exit
-pygame.quit()
-if ev.type == pygame.MOUSEBUTTONDOWN:
-if height - 100 < mouse1[1] < height - 80 and 100 < mouse1[0] < 140:
-# Koniec
-pygame.quit()
-if ev.type == pygame.MOUSEBUTTONDOWN:
-if height - 100 < mouse1[1] < height - 80 and width - 180 < mouse1[0] < width - 100:
-game(lead_x, lead_y, speed, count)
+    while True:
+        for ev in pygame.event.get():
+            if ev.type == pygame.QUIT:
 
-display.fill((65, 25, 64))
-smallfont = pygame.font.SysFont('Corbel', 60)
-smallfont1 = pygame.font.SysFont('Corbel', 25)
-game_over = smallfont.render('GAME OVER', True, white)
-game_exit = smallfont1.render('exit', True, white)
-restart = smallfont1.render('restart', True, white)
-mouse1 = pygame.mouse.get_pos()
-#Przycisk końca gry
-if height - 100 < mouse1[1] < height - 80 and 100 < mouse1[0] < 140:
-pygame.draw.rect(display, startl, [100, height - 100, 40,20])
-else:
-pygame.draw.rect(display, startd, [100, height - 100, 40,20])
-# Zacznij jeszcze raz
-if height - 100 < mouse1[1] < height - 80 and width - 180 < mouse1[0] < width - 100:
-pygame.draw.rect(display, startl, [width - 180, height- 100, 80, 20])
-else:
-pygame.draw.rect(display, startd, [width - 180, height- 100, 80, 20])
-display.blit(game_exit, (100, height - 100))
-display.blit(restart, (width - 180, height - 100))
-display.blit(game_over, (width / 2 - 150, 295))
-pygame.display.update()
-pygame.draw.rect(display, startd, [100, height - 100, 40, 20])
-pygame.draw.rect(display, startd, [width - 180, height - 100, 40, 50])
-# GRA OD KUCHNI
+                pygame.quit()
+            if ev.type == pygame.MOUSEBUTTONDOWN:
+            if height - 100 < mouse1[1] < height - 80 and 100 < mouse1[0] < 140:
+    # Koniec
+    pygame.quit()
+    if ev.type == pygame.MOUSEBUTTONDOWN:
+    if height - 100 < mouse1[1] < height - 80 and width - 180 < mouse1[0] < width - 100:
+    game(lead_x, lead_y, speed, count)
+
+    display.fill((65, 25, 64))
+    smallfont = pygame.font.SysFont('Corbel', 60)
+    smallfont1 = pygame.font.SysFont('Corbel', 25)
+    game_over = smallfont.render('GAME OVER', True, white)
+    game_exit = smallfont1.render('exit', True, white)
+    restart = smallfont1.render('restart', True, white)
+    mouse1 = pygame.mouse.get_pos()
+    #Przycisk końca gry
+    if height - 100 < mouse1[1] < height - 80 and 100 < mouse1[0] < 140:
+    pygame.draw.rect(display, startl, [100, height - 100, 40,20])
+    else:
+    pygame.draw.rect(display, startd, [100, height - 100, 40,20])
+    # Zacznij jeszcze raz
+    if height - 100 < mouse1[1] < height - 80 and width - 180 < mouse1[0] < width - 100:
+    pygame.draw.rect(display, startl, [width - 180, height- 100, 80, 20])
+    else:
+    pygame.draw.rect(display, startd, [width - 180, height- 100, 80, 20])
+    display.blit(game_exit, (100, height - 100))
+    display.blit(restart, (width - 180, height - 100))
+    display.blit(game_over, (width / 2 - 150, 295))
+    pygame.display.update()
+    pygame.draw.rect(display, startd, [100, height - 100, 40, 20])
+    pygame.draw.rect(display, startd, [width - 180, height - 100, 40, 50])
+
 def game(lead_y,lead_X,speed,count,):
 while True:
 for ev in pygame.event.get():
